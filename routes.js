@@ -10,6 +10,7 @@ Router.get('/',(req,res)=>{
     })
 })
 
+
 //importing book controller
 var bookController = require('./bookController')
 
@@ -18,7 +19,8 @@ Router.route('/books')
         .get(bookController.index)
         .post(bookController.newbook)
 Router.route('/books/:book_id')
-        .put()
+        .put(bookController.updatebookById)
+        .delete(bookController.removebookById)
 
 //export api routes
 module.exports = Router
